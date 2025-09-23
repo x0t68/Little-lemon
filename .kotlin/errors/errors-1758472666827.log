@@ -1,0 +1,159 @@
+kotlin version: 2.0.21
+error message: org.jetbrains.kotlin.backend.common.BackendException: Backend Internal error: Exception during IR lowering
+File being compiled: C:/Users/LENOVO/Desktop/Little-lemon/Little-lemon/app/src/main/java/com/example/littlelemon/Onboarding.kt
+The root cause java.lang.RuntimeException was thrown at: org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException(CodegenUtil.kt:253)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException$default(CodegenUtil.kt:236)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:65)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:52)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:38)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:27)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:14)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompilerPhaseKt.invokeToplevel(CompilerPhase.kt:62)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.invokeCodegen(JvmIrCodegenFactory.kt:371)
+	at org.jetbrains.kotlin.codegen.CodegenFactory.generateModule(CodegenFactory.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.generateModuleInFrontendIRMode(JvmIrCodegenFactory.kt:433)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.generateCodeFromIr(jvmCompilerPipeline.kt:246)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.compileModulesUsingFrontendIrAndLightTree(jvmCompilerPipeline.kt:142)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:148)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:43)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:103)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:49)
+	at org.jetbrains.kotlin.cli.common.CLITool.exec(CLITool.kt:101)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:464)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:73)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.doCompile(IncrementalCompilerRunner.kt:506)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileImpl(IncrementalCompilerRunner.kt:423)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally$lambda$9$compile(IncrementalCompilerRunner.kt:249)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally(IncrementalCompilerRunner.kt:267)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compile(IncrementalCompilerRunner.kt:120)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.execIncrementalCompiler(CompileServiceImpl.kt:675)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.access$execIncrementalCompiler(CompileServiceImpl.kt:92)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1660)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN LOCAL_FUNCTION_FOR_LAMBDA name:OnboardingScreen$lambda$21$lambda$20$lambda$19 visibility:private modality:FINAL <> ($context:android.content.Context, $navController:androidx.navigation.NavController, $firstName$delegate:androidx.compose.runtime.MutableState<kotlin.String>, $lastName$delegate:androidx.compose.runtime.MutableState<kotlin.String>, $email$delegate:androidx.compose.runtime.MutableState<kotlin.String>) returnType:kotlin.Unit?
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:$context index:0 type:android.content.Context
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:$navController index:1 type:androidx.navigation.NavController
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:$firstName$delegate index:2 type:androidx.compose.runtime.MutableState<kotlin.String>
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:$lastName$delegate index:3 type:androidx.compose.runtime.MutableState<kotlin.String>
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:$email$delegate index:4 type:androidx.compose.runtime.MutableState<kotlin.String>
+  BLOCK_BODY
+    WHEN type=kotlin.Unit origin=IF
+      BRANCH
+        if: CALL 'public final fun OROR (arg0: kotlin.Boolean, arg1: kotlin.Boolean): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+          arg0: CALL 'public final fun OROR (arg0: kotlin.Boolean, arg1: kotlin.Boolean): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+            arg0: CALL 'public final fun isBlank (): kotlin.Boolean declared in kotlin.text.StringsKt' type=kotlin.Boolean origin=null
+              $receiver: CALL 'private final fun OnboardingScreen$lambda$1 ($firstName$delegate: androidx.compose.runtime.MutableState<kotlin.String>): kotlin.String declared in com.example.littlelemon.OnboardingKt' type=kotlin.String origin=GET_LOCAL_PROPERTY
+                $firstName$delegate: GET_VAR '$firstName$delegate: androidx.compose.runtime.MutableState<kotlin.String> declared in com.example.littlelemon.OnboardingKt.OnboardingScreen$lambda$21$lambda$20$lambda$19' type=androidx.compose.runtime.MutableState<kotlin.String> origin=null
+            arg1: CALL 'public final fun isBlank (): kotlin.Boolean declared in kotlin.text.StringsKt' type=kotlin.Boolean origin=null
+              $receiver: CALL 'private final fun OnboardingScreen$lambda$4 ($lastName$delegate: androidx.compose.runtime.MutableState<kotlin.String>): kotlin.String declared in com.example.littlelemon.OnboardingKt' type=kotlin.String origin=GET_LOCAL_PROPERTY
+                $lastName$delegate: GET_VAR '$lastName$delegate: androidx.compose.runtime.MutableState<kotlin.String> declared in com.example.littlelemon.OnboardingKt.OnboardingScreen$lambda$21$lambda$20$lambda$19' type=androidx.compose.runtime.MutableState<kotlin.String> origin=null
+          arg1: CALL 'public final fun isBlank (): kotlin.Boolean declared in kotlin.text.StringsKt' type=kotlin.Boolean origin=null
+            $receiver: CALL 'private final fun OnboardingScreen$lambda$7 ($email$delegate: androidx.compose.runtime.MutableState<kotlin.String>): kotlin.String declared in com.example.littlelemon.OnboardingKt' type=kotlin.String origin=GET_LOCAL_PROPERTY
+              $email$delegate: GET_VAR '$email$delegate: androidx.compose.runtime.MutableState<kotlin.String> declared in com.example.littlelemon.OnboardingKt.OnboardingScreen$lambda$21$lambda$20$lambda$19' type=androidx.compose.runtime.MutableState<kotlin.String> origin=null
+        then: BLOCK type=kotlin.Unit origin=null
+          SET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:message type:kotlin.Int visibility:public [final,static] declared in android.R.id' type=kotlin.Unit superQualifierSymbol=android.R.id origin=EQ
+            value: CONST Int type=kotlin.Int value=21
+      BRANCH
+        if: CONST Boolean type=kotlin.Boolean value=true
+        then: BLOCK type=kotlin.Unit origin=null
+          VAR name:sharedPref type:@[FlexibleNullability] android.content.SharedPreferences? [val]
+            CALL 'public abstract fun getSharedPreferences (p0: @[FlexibleNullability] kotlin.String?, p1: kotlin.Int): @[FlexibleNullability] android.content.SharedPreferences? declared in android.content.Context' type=@[FlexibleNullability] android.content.SharedPreferences? origin=null
+              $this: GET_VAR '$context: android.content.Context declared in com.example.littlelemon.OnboardingKt.OnboardingScreen$lambda$21$lambda$20$lambda$19' type=android.content.Context origin=null
+              p0: CONST String type=kotlin.String value="LittleLemon"
+              p1: CONST Int type=kotlin.Int value=0
+          CALL 'public final fun with <T, R> (receiver: T of kotlin.StandardKt.with, block: @[ExtensionFunctionType] kotlin.Function1<T of kotlin.StandardKt.with, R of kotlin.StandardKt.with>): R of kotlin.StandardKt.with [inline] declared in kotlin.StandardKt' type=kotlin.Unit origin=null
+            <T>: @[FlexibleNullability] android.content.SharedPreferences.Editor?
+            <R>: kotlin.Unit
+            receiver: CALL 'public abstract fun edit (): @[FlexibleNullability] android.content.SharedPreferences.Editor? declared in android.content.SharedPreferences' type=@[FlexibleNullability] android.content.SharedPreferences.Editor? origin=null
+              $this: GET_VAR 'val sharedPref: @[FlexibleNullability] android.content.SharedPreferences? [val] declared in com.example.littlelemon.OnboardingKt.OnboardingScreen$lambda$21$lambda$20$lambda$19' type=@[FlexibleNullability] android.content.SharedPreferences? origin=null
+            block: BLOCK type=@[ExtensionFunctionType] kotlin.Function1<@[FlexibleNullability] android.content.SharedPreferences.Editor?, kotlin.Unit> origin=LAMBDA
+              COMPOSITE type=kotlin.Unit origin=null
+              FUNCTION_REFERENCE 'private final fun OnboardingScreen$lambda$21$lambda$20$lambda$19$lambda$16 ($firstName$delegate: androidx.compose.runtime.MutableState<kotlin.String>, $lastName$delegate: androidx.compose.runtime.MutableState<kotlin.String>, $email$delegate: androidx.compose.runtime.MutableState<kotlin.String>): kotlin.Unit declared in com.example.littlelemon.OnboardingKt' type=@[ExtensionFunctionType] kotlin.Function1<@[FlexibleNullability] android.content.SharedPreferences.Editor?, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+                $firstName$delegate: GET_VAR '$firstName$delegate: androidx.compose.runtime.MutableState<kotlin.String> declared in com.example.littlelemon.OnboardingKt.OnboardingScreen$lambda$21$lambda$20$lambda$19' type=androidx.compose.runtime.MutableState<kotlin.String> origin=null
+                $lastName$delegate: GET_VAR '$lastName$delegate: androidx.compose.runtime.MutableState<kotlin.String> declared in com.example.littlelemon.OnboardingKt.OnboardingScreen$lambda$21$lambda$20$lambda$19' type=androidx.compose.runtime.MutableState<kotlin.String> origin=null
+                $email$delegate: GET_VAR '$email$delegate: androidx.compose.runtime.MutableState<kotlin.String> declared in com.example.littlelemon.OnboardingKt.OnboardingScreen$lambda$21$lambda$20$lambda$19' type=androidx.compose.runtime.MutableState<kotlin.String> origin=null
+          SET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:message type:kotlin.Int visibility:public [final,static] declared in android.R.id' type=kotlin.Unit superQualifierSymbol=android.R.id origin=EQ
+            value: CONST Int type=kotlin.Int value=204
+          CALL 'public final fun navigate (route: kotlin.String, builder: @[ExtensionFunctionType] kotlin.Function1<androidx.navigation.NavOptionsBuilder, kotlin.Unit>): kotlin.Unit declared in androidx.navigation.NavController' type=kotlin.Unit origin=null
+            $this: GET_VAR '$navController: androidx.navigation.NavController declared in com.example.littlelemon.OnboardingKt.OnboardingScreen$lambda$21$lambda$20$lambda$19' type=androidx.navigation.NavController origin=null
+            route: CALL 'public open fun <get-route> (): kotlin.String declared in com.example.littlelemon.Home' type=kotlin.String origin=GET_PROPERTY
+              $this: GET_FIELD 'FIELD FIELD_FOR_OBJECT_INSTANCE name:INSTANCE type:com.example.littlelemon.Home visibility:public [final,static] declared in com.example.littlelemon.Home' type=com.example.littlelemon.Home origin=null
+            builder: BLOCK type=@[ExtensionFunctionType] kotlin.Function1<androidx.navigation.NavOptionsBuilder, kotlin.Unit> origin=LAMBDA
+              COMPOSITE type=kotlin.Unit origin=null
+              CALL 'public final fun <jvm-indy> <T> (dynamicCall: T of kotlin.jvm.internal.<jvm-indy>, bootstrapMethodHandle: kotlin.Any, vararg bootstrapMethodArguments: kotlin.Any): T of kotlin.jvm.internal.<jvm-indy> declared in kotlin.jvm.internal' type=@[ExtensionFunctionType] kotlin.Function1<androidx.navigation.NavOptionsBuilder, kotlin.Unit> origin=null
+                <T>: @[ExtensionFunctionType] kotlin.Function1<androidx.navigation.NavOptionsBuilder, kotlin.Unit>
+                dynamicCall: CALL 'public final fun invoke (): @[ExtensionFunctionType] kotlin.Function1<androidx.navigation.NavOptionsBuilder, kotlin.Unit> declared in kotlin.jvm.internal.invokeDynamic' type=@[ExtensionFunctionType] kotlin.Function1<androidx.navigation.NavOptionsBuilder, kotlin.Unit> origin=null
+                bootstrapMethodHandle: CALL 'public final fun <jvm-method-handle> (tag: kotlin.Int, owner: kotlin.String, name: kotlin.String, descriptor: kotlin.String, isInterface: kotlin.Boolean): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+                  tag: CONST Int type=kotlin.Int value=6
+                  owner: CONST String type=kotlin.String value="java/lang/invoke/LambdaMetafactory"
+                  name: CONST String type=kotlin.String value="metafactory"
+                  descriptor: CONST String type=kotlin.String value="(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;"
+                  isInterface: CONST Boolean type=kotlin.Boolean value=false
+                bootstrapMethodArguments: VARARG type=kotlin.Array<kotlin.Any> varargElementType=kotlin.Any
+                  CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+                    method: RAW_FUNCTION_REFERENCE 'public abstract fun invoke (p1: P1 of kotlin.Function1): R of kotlin.Function1 [operator] declared in kotlin.Function1' type=kotlin.Any
+                  RAW_FUNCTION_REFERENCE 'private final fun OnboardingScreen$lambda$21$lambda$20$lambda$19$lambda$18 ($this$navigate: androidx.navigation.NavOptionsBuilder): kotlin.Unit? declared in com.example.littlelemon.OnboardingKt' type=kotlin.Any
+                  CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+                    method: RAW_FUNCTION_REFERENCE 'public abstract fun invoke (p1: androidx.navigation.NavOptionsBuilder): kotlin.Unit? [fake_override,operator] declared in kotlin.jvm.internal.invokeDynamic.<fake>' type=kotlin.Any
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate$default(FunctionCodegen.kt:40)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethodNode(ClassCodegen.kt:406)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethod(ClassCodegen.kt:423)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generate(ClassCodegen.kt:168)
+	at org.jetbrains.kotlin.backend.jvm.FileCodegen.lower(JvmPhases.kt:39)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseFactoriesKt.createFilePhase$lambda$4(PhaseFactories.kt:71)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseBuildersKt$createSimpleNamedCompilerPhase$1.phaseBody(PhaseBuilders.kt:69)
+	at org.jetbrains.kotlin.backend.common.phaser.SimpleNamedCompilerPhase.phaseBody(CompilerPhase.kt:226)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:62)
+	... 44 more
+Caused by: java.lang.AssertionError: access of const val: SET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:message type:kotlin.Int visibility:public [final,static] declared in android.R.id' type=kotlin.Unit superQualifierSymbol=android.R.id origin=EQ
+  value: CONST Int type=kotlin.Int value=21
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitFieldAccess(ExpressionCodegen.kt:861)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitFieldAccess(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.visitors.IrElementVisitor$DefaultImpls.visitSetField(IrElementVisitor.kt:206)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitSetField(ExpressionCodegen.kt:908)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitSetField(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrSetField.accept(IrSetField.kt:21)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitContainerExpression(ExpressionCodegen.kt:593)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitContainerExpression(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.visitors.IrElementVisitor$DefaultImpls.visitBlock(IrElementVisitor.kt:122)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlock(ExpressionCodegen.kt:413)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlock(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlock.accept(IrBlock.kt:18)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitWhen(ExpressionCodegen.kt:1101)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitWhen(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrWhen.accept(IrWhen.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:584)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:240)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:123)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:44)
+	... 54 more
+
+
