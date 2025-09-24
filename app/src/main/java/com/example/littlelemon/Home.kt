@@ -162,6 +162,28 @@ fun HomeScreen(navController: NavController, menuItems: List<MenuItemRoom>) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                val categories = listOf("Starters", "Mains", "Desserts", "Drinks")
+
+                categories.forEach { category ->
+                    Button(
+                        onClick = {
+                            selectedCategory = if (selectedCategory == category) null else category
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = if (selectedCategory == category) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary
+                        )
+                    ) {
+                        Text(category)
+                    }
+                }
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 allCategories.forEach { category ->
