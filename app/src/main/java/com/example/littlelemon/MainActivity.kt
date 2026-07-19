@@ -3,6 +3,7 @@
 package com.example.littlelemon
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.*
@@ -18,24 +19,27 @@ import io.ktor.client.engine.android.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.Json
 
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private val client = HttpClient(Android) {
+        install(ContentNegotiation) {
+            json(Json {
+                ignoreUnknownKeys = true
+            })
+        }
+    }
 
-        // إنشاء قاعدة البيانات Room
-        val db = Room.databaseBuilder(
+    private val db by lazy {
+        Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java,
             "little_lemon_db"
         ).build()
+    }
 
-        // إنشاء HttpClient
-        val client = HttpClient(Android) {
-            install(ContentNegotiation) {
-                json()
-            }
-        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         // إنشاء الريبو
         val repo = MenuRepository(db, client)
@@ -43,21 +47,21 @@ class MainActivity : ComponentActivity() {
         setContent {
             LittleLemonTheme {
                 val navController = rememberNavController()
-
-                val scope = rememberCoroutineScope()
                 var menuItems by remember { mutableStateOf(emptyList<MenuItemRoom>()) }
 
                 // تحميل البيانات من الشبكة وتخزينها محلياً ثم قراءتها
                 LaunchedEffect(Unit) {
-                    scope.launch {
-                        try {
-                            repo.fetchAndStoreMenu()
-                        } catch (_: Exception) { // Changed e to _
-                            // لو فشل التحميل من النت، نحاول قراءة أي بيانات محلية متاحة
-                            // ممكن تضيف لوج أو رسالة لو حبيت
-                        }
-                        menuItems = repo.getLocalMenu()
+                    Log.d("LittleLemonDebug", "A. دخلنا الـ LaunchedEffect في MainActivity")
+                    try {
+                        repo.fetchAndStoreMenu()
+                        Log.d("LittleLemonDebug", "B. تم استدعاء fetchAndStoreMenu بنجاح")
+                    } catch (e: Exception) {
+                        Log.e("LittleLemonDebug", "C. حدث خطأ في MainActivity: ${e.message}")
                     }
+                    
+                    val localItems = repo.getLocalMenu()
+                    Log.d("LittleLemonDebug", "D. عدد العناصر المسترجعة من قاعدة البيانات المحلية: ${localItems.size}")
+                    menuItems = localItems
                 }
 
                 // نمرر menuItems للـ NavigationComposable عشان HomeScreen يتلقى البيانات

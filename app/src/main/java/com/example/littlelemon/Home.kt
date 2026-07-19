@@ -151,43 +151,25 @@ fun HomeScreen(navController: NavController, menuItems: List<MenuItemRoom>) {
         }
 
         // Content below Hero Section
-        Column(modifier = Modifier.padding(horizontal = 16.dp)){
+        Column(modifier = Modifier.padding(horizontal = 16.dp)) {
             Text(
                 text = "ORDER FOR DELIVERY",
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.ExtraBold,
                 modifier = Modifier.padding(top = 24.dp, bottom = 12.dp)
             )
-            Row(
+
+            // استخدام LazyRow لجعل التصنيفات قابلة للتمرير أفقيًا وتجنب الازدحام
+            androidx.compose.foundation.lazy.LazyRow(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                val categories = listOf("Starters", "Mains", "Desserts", "Drinks")
-
-                categories.forEach { category ->
-                    Button(
-                        onClick = {
-                            selectedCategory = if (selectedCategory == category) null else category
-                        },
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = if (selectedCategory == category) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary
-                        )
-                    ) {
-                        Text(category)
-                    }
-                }
-            }
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 8.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                allCategories.forEach { category ->
+                items(allCategories.size) { index ->
+                    val category = allCategories[index]
                     val isSelected = category.equals(selectedCategory, ignoreCase = true)
+                    
                     Button(
                         onClick = {
                             selectedCategory = if (isSelected) null else category
@@ -197,9 +179,13 @@ fun HomeScreen(navController: NavController, menuItems: List<MenuItemRoom>) {
                             containerColor = if (isSelected) GreenPrimary else LightGrayBackground,
                             contentColor = if (isSelected) YellowPrimary else DarkGrayText
                         ),
-                        modifier = Modifier.weight(1f).padding(horizontal = 4.dp)
+                        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                     ) {
-                        Text(category, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                        Text(
+                            text = category,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Bold
+                        )
                     }
                 }
             }
